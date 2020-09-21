@@ -19,3 +19,9 @@ p
 {
     border-radius: 50px;
 }
+
+#word
+{
+    font-weight: bold;
+    font-size: xx-large;
+}

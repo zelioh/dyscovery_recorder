@@ -15,4 +15,8 @@ app.get('/record', (req, res) => {
     res.render('recorder');
 })
 
+app.get('/end', (req, res) => {
+    res.render('end.ejs');
+})
+
 module.exports = app;
