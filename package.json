@@ -4,6 +4,7 @@
   "description": "Plateforme d'enregistrement de voix en JS ayant pour but d'augmenter les données d'entraînement de l'IA de dyscovery",
   "main": "backend/server.js",
   "dependencies": {
+    "ejs": "^3.1.5",
     "express": "^4.17.1"
   },
   "devDependencies": {},
