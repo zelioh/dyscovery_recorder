@@ -8,3 +8,14 @@ p
     width: 64px;
     height: 64px;
 }
+
+#mic
+{
+    width: 32px;
+    height: 32px;
+}
+
+.btn-radius
+{
+    border-radius: 50px;
+}

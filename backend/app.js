@@ -8,7 +8,11 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/../public/'));
 
 app.get('/dyscovery_recorder', (req, res) => {
-    res.render('index')
+    res.render('index');
 });
+
+app.get('/record', (req, res) => {
+    res.render('recorder');
+})
 
 module.exports = app;
