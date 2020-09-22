@@ -1,5 +1,37 @@
 $(document).ready(() => {
-    var list = ['acodin', 'oui', '...']
+    var list = [
+        'acotin',
+        'angal',
+        'aurevoir',
+        'bolipro',
+        'bonjour',
+        'britafulin',
+        'dabermication',
+        'danle',
+        'frère',
+        'glareton',
+        'gonte',
+        'gul',
+        'latupatori',
+        'maman',
+        'maraséko',
+        'milicopu',
+        'misu',
+        'munar',
+        'nadri',
+        'pamilé',
+        'panilotur',
+        'papa',
+        'rabucadin',
+        'rac',
+        'rogochircota',
+        'ropilar',
+        'sepréténidol',
+        'soeur',
+        'tuv',
+        'vétol',
+        'vutularité'
+    ]
     var index = 0;
 
     var AudioContext = window.AudioContext || window.webkitAudioContext;

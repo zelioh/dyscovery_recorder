@@ -33,7 +33,9 @@ app.get('/end', (req, res) => {
 });
 
 app.post('/save', upload.any(), (req, res) => {
-    fs.writeFile(req.files[0].originalname, Buffer.from(new Uint8Array(req.files[0].buffer)), (err) => {
+    let word = req.files[0].originalname.split('_')[0];
+
+    fs.writeFile('/dyscovery_data/' + word + '/' + req.files[0].originalname, Buffer.from(new Uint8Array(req.files[0].buffer)), (err) => {
         if (err) {
             console.log('Error: ', err);
             res.status(500).send('An error occurred: ' + err.message);
@@ -41,11 +43,6 @@ app.post('/save', upload.any(), (req, res) => {
             res.status(200).send('ok');
         }
     });
-    // req.files.data.mv(req.files[0].originalname, function(err) {
-    //     if (err) {
-    //       console.log(err);
-    //     }
-    // });
 });
 
 module.exports = app;
