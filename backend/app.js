@@ -32,6 +32,43 @@ app.get('/end', (req, res) => {
     res.render('end.ejs');
 });
 
+app.post('/words', (req, res) =>  {
+    var list = [
+        'acotin',
+        'angal',
+        'aurevoir',
+        'bolipro',
+        'bonjour',
+        'britafulin',
+        'dabermication',
+        'danle',
+        'frère',
+        'glareton',
+        'gonte',
+        'gul',
+        'latupatori',
+        'maman',
+        'maraséko',
+        'milicopu',
+        'misu',
+        'munar',
+        'nadri',
+        'pamilé',
+        'panilotur',
+        'papa',
+        'rabucadin',
+        'rac',
+        'rogochircota',
+        'ropilar',
+        'sepréténidol',
+        'soeur',
+        'tuv',
+        'vétol',
+        'vutularité'
+    ];
+    res.send(list);
+});
+
 app.post('/save', upload.any(), (req, res) => {
     let word = req.files[0].originalname.split('_')[0];
 
