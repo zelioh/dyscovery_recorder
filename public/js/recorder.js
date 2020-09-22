@@ -36,26 +36,59 @@ $(document).ready(() => {
             rec.stop();
             gumStream.getAudioTracks()[0].stop();
             rec.exportWAV(sendToServer);
-
-            $('#mic').attr('src', 'asset/white_mic.png');
-            $('#word').html(list[++index]);
-            if (index >= list.length)
-            {
-                window.location.href = "end";
-            }
         }
     });
 
+    function generateRandomString(length) {
+        var result           = '';
+        let characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let charactersLength = characters.length;
+
+        for ( var i = 0; i < length; i++ )
+        {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+
+        return result;
+    }
+
     function sendToServer(blob)
     {
+        let currentWorld = $('#word').html();
+
+        if (!list.includes(currentWorld))
+        {
+            console.log('This world doesn\'t exist');
+            alert('Erreur, le mot n\'existe pas');
+            return;
+        }
+
+        currentWorld += '_' + generateRandomString(15) + '.wav';
+
+        var formData = new FormData();
+        formData.append("audio", blob, currentWorld);
+
         $.ajax({
             type: "POST",
             url: "save",
-            data: {
-                audio: blob
-            },
+            data: formData,
+            contentType:false,
+            processData:false,
+            cache:false,
+            enctype: 'multipart/form-data',
             success: function (response) {
-              console.log(response);  
+                $('#mic').attr('src', 'asset/white_mic.png');
+                $('#word').html(list[++index]);
+                if (index >= list.length)
+                {
+                    window.location.href = "end";
+                }
+
+	            var url = URL.createObjectURL(blob);
+                var au = document.createElement('audio');
+
+                au.controls = true;
+                au.src = url;
             },
             error: function (response)
             {
