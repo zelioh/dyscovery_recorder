@@ -1,6 +1,6 @@
 p
 {
-    font-size: x-large;
+    font-size: xx-large;
 }
 
 #logo
@@ -11,8 +11,8 @@ p
 
 #mic
 {
-    width: 32px;
-    height: 32px;
+    width: 64px;
+    height: 64px;
 }
 
 .btn-radius
@@ -23,5 +23,5 @@ p
 #word
 {
     font-weight: bold;
-    font-size: xx-large;
+    font-size: 54px;
 }
